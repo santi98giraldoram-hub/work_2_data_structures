@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="Figures_Backend/Figures_Backend.csproj" />
+  <Project Path="Figures_Frontend/Figures_Frontend.csproj" Id="3b1f1fbc-105b-445e-a67f-e4da2fdf695e" />
 </Solution>

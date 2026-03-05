@@ -2,43 +2,38 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Figures_Backend { 
-
-    internal class Circle : GeometricFigure
+namespace Figures_Backend
 {
-    private double _r;
-
-    public double R
+    public class Circle : GeometricFigure
     {
-        get => _r;
+        private double _r;
 
-        set
+        public double R
         {
-            if (value < 0)
+            get => _r;
+            set
             {
-                throw new ArgumentOutOfRangeException("Radius must be positive");
+                if (value <= 0)  
+                {
+                    throw new ArgumentOutOfRangeException("Radius must be greater than 0.");
+                }
+                _r = value;
             }
-            _r = value;
+        }
+
+        public Circle(double r) { 
+            Name = "Circle";
+            R = r;
+        }
+
+        public override double GetArea()
+        {
+            return Math.PI * R * R;
+        }
+
+        public override double GetPerimeter()
+        {
+            return 2 * Math.PI * R;
         }
     }
-
-    public double circle(double r)
-    {
-        Name = "Circle";
-        R = r;
-    }
-
-    public override double GetArea()
-    {
-        return (Math.PI * R * R);
-    }
-
-    public override double GetPerimeter()
-    {
-        return (2 * Math.PI * R);
-    }
-
-
 }
-}
-
